@@ -85,31 +85,48 @@
         height: 150px;
       }
 
-      /* .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #333;
-    min-width: 160px;
-    z-index: 1;
-  }
+      .map-container {
+        background-color: black;
+      }
 
-  .dropdown-content a {
-    float: none;
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
+      .map {
+        width: 100%;
+        height: 300px;
+        border: 0;
+      }
 
-  .dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
+      .waze-container {
+        display: flex;
+        flex-direction: row;
+        text-align: right;
+        align-items: center;
+        position: absolute;
+        right: 1.5rem;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        gap: 30px;
+      }
 
-  .dropdown:hover .dropdown-content {
-    display: block;
-  } */
+      .waze-container img {
+        width: 100px;
+        height: 100px;
+      }
+
+      @media screen and (min-width: 768px) {
+        .map-container {
+          text-align: center;
+        }
+
+        .map {
+          height: 600px;
+          width: 70%;
+          margin: auto;
+        }
+
+        .waze-container {
+          margin-right: 15%;
+        }
+      }
 
       /* Estilos para las secciones */
       section {
@@ -316,16 +333,25 @@
 
     <section id="ubicacion">
       <h2>Ubicación</h2>
-      <div id="map" class="map">
-        <!-- Aquí se insertará el mapa de Google Maps -->
+
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d887.7017464942195!2d-71.48902111845135!3d-36.902746503877246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966e94736e619545%3A0xe1b54e850db5f8c4!2sCaba%C3%B1as%20Colegio%20Medico!5e1!3m2!1ses!2scl!4v1711727372624!5m2!1ses!2scl"
+          class="map"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <div class="waze-container">
+          <p>Busca con waze</p>
+          <a href="https://waze.com/ul/h63mnj608p">
+            <img src="img/logos/waze.png" alt="Abrir con waze" />
+          </a>
+        </div>
       </div>
-      <!-- <div style="background-color: #333;">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d887.7017464942195!2d-71.48902111845135!3d-36.902746503877246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966e94736e619545%3A0xe1b54e850db5f8c4!2sCaba%C3%B1as%20Colegio%20Medico!5e1!3m2!1ses!2scl!4v1711727372624!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div> -->
-      <a href="https://waze.com/ul/h63mnj608p">Abrir en Waze</a>
     </section>
 
-    <section id="contacto">
+    <section id="contacto" style="margin-top: 130px">
       <h2>Contacto</h2>
       <p>Información de contacto...</p>
     </section>
@@ -369,33 +395,6 @@
         updateSlider();
       }, 5000); // Cambia la imagen cada 5 segundos
     </script>
-    <!-- Script para el mapa de Google Maps -->
-    <script>
-      // Función para inicializar el mapa
-      function initMap() {
-        // Coordenadas del lugar
-        var lugar = { lat: -37.4192, lng: -71.1694 };
-        // Opciones del mapa
-        var options = {
-          zoom: 15,
-          center: lugar,
-        };
-        // Crear el mapa
-        var map = new google.maps.Map(document.getElementById("map"), options);
-        // Marcador en el lugar
-        var marker = new google.maps.Marker({
-          position: lugar,
-          map: map,
-        });
-      }
-    </script>
-
-    <!-- Incluir la API de Google Maps -->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"
-      async
-      defer
-    ></script>
 
     <script>
       const toggleMenuElement = document.getElementById("toggle-menu");
