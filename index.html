@@ -1,72 +1,91 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cabañas en Las Trancas - Cabañas Los Coigües</title>
-<meta name="description" content="Encuentra las mejores cabañas en Las Trancas para tus vacaciones. Disfruta de la naturaleza y la tranquilidad en Cabañas Los Coigües.">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
-<style>
-  body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cabañas en Las Trancas - Cabañas Los Coigües</title>
+    <meta
+      name="description"
+      content="Encuentra las mejores cabañas en Las Trancas para tus vacaciones. Disfruta de la naturaleza y la tranquilidad en Cabañas Los Coigües."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css"
+    />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
 
-  .toggle-menu {
-    width: 40px;
-    position: fixed;
-    top: 0.25rem;
-    right: 1.5rem;
-    cursor: pointer;
-    filter: invert(1);
-    z-index: 4;
-  }
+      .toggle-menu {
+        width: 40px;
+        position: fixed;
+        top: 0.25rem;
+        right: 1.5rem;
+        cursor: pointer;
+        filter: invert(1);
+        z-index: 4;
+      }
 
-  /* Estilos para el menú */
-  
-  .navbar {
-    list-style: none;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
-    display: flex;
-    flex-direction: column;
-    background-color: #bbb;
-    align-items: center;
-    transition: transform 0.3s;
-    transform: translateY(-83%);
-    position: fixed;
-    z-index: 3;
-    width: 100%;
-  }
+      /* Estilos para el menú */
 
-  @media screen and (min-width: 768px) {
-    .navbar {
-      flex-direction: row;
-      transform: translateY(0);
-    }
+      .navbar {
+        list-style: none;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: #bbb;
+        align-items: center;
+        transition: transform 0.3s;
+        transform: translateY(-83%);
+        position: fixed;
+        z-index: 3;
+        width: 100%;
+      }
 
-    .toggle-menu {
-      display: none;
-    }
-  }
+      @media screen and (min-width: 768px) {
+        .navbar {
+          flex-direction: row;
+          transform: translateY(0);
+        }
 
-  .navbar-show {
-    transform: translateY(0);
-  }
+        .toggle-menu {
+          display: none;
+        }
+      }
 
-  .navbar-item {
-    padding: 1em;
-  }
+      .navbar-show {
+        transform: translateY(0);
+      }
 
-  .navbar-link {
-    color: white;
-    text-transform: uppercase;
-    text-decoration: none;
-  }
+      .navbar-item {
+        padding: 1em;
+      }
 
-  .dropdown-content {
+      .navbar-link {
+        color: white;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+
+      .whatsapp-container {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        z-index: 9999;
+      }
+
+      .whatsapp-container img {
+        width: 150px;
+        height: 150px;
+      }
+
+      /* .dropdown-content {
     display: none;
     position: absolute;
     background-color: #333;
@@ -90,216 +109,261 @@
 
   .dropdown:hover .dropdown-content {
     display: block;
-  }
+  } */
 
-  /* Estilos para las secciones */
-  section {
-    padding: 60px 20px 20px 20px;
-    background-color: #f9f9f9;
-  }
+      /* Estilos para las secciones */
+      section {
+        padding: 60px 20px 20px 20px;
+        background-color: #f9f9f9;
+      }
 
-  h2 {
-    margin-top: 0;
-  }
+      h2 {
+        margin-top: 0;
+      }
 
-  /* Estilos para el slide */
-  .slides-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-  }
+      /* Estilos para el slide */
+      .slides-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
 
-  .slides {
-    display: flex;
-    transition: transform 0.5s ease;
-  }
+      .slides {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
 
-  .slide {
-    width: 100%;
-    flex-shrink: 0;
-  }
+      .slide {
+        width: 100%;
+        flex-shrink: 0;
+      }
 
-  img {
-    width: 100%;
-    max-height: 550px;
-    object-fit: cover;
-  }
+      img {
+        width: 100%;
+        max-height: 550px;
+        object-fit: cover;
+      }
 
-  .text-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejorar la legibilidad del texto */
-    width: 80%;
-    z-index: 1; /* Asegura que el texto esté por encima de las imágenes */
-  }
+      .text-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para mejorar la legibilidad del texto */
+        width: 80%;
+        z-index: 1; /* Asegura que el texto esté por encima de las imágenes */
+      }
 
-  .gallery {
-    display: flex;
-    flex-wrap: wrap;
-  }
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+      }
 
-  .gallery a {
-    width: 25%;
-    margin: 5px;
-    box-sizing: border-box;
-  }
+      .gallery a {
+        width: 25%;
+        margin: 5px;
+        box-sizing: border-box;
+      }
 
-  .gallery img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+      .gallery img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
 
-  .dots-container {
-    text-align: center;
-    margin-top: 20px;
-  }
+      .dots-container {
+        text-align: center;
+        margin-top: 20px;
+      }
 
-  .dot {
-    height: 15px;
-    width: 15px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 0 5px;
-    cursor: pointer;
-  }
+      .dot {
+        height: 15px;
+        width: 15px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        margin: 0 5px;
+        cursor: pointer;
+      }
 
-  .dot.active {
-    background-color: #717171;
-  }
-</style>
-</head>
-<body>
-
-  <nav class="navbar-nav">
-    <div id="toggle-menu" class="toggle-menu">
-      <img src="img/toggle.png" alt="">
-    </div>
-    
-    
-    <ul class="navbar" id="navbar">
-      <li class="navbar-item">
-        <a href="#inicio" class="navbar-link" id="inicioMenu">Inicio</a>
-      </li>
-     <li class="navbar-item">
-        <a href="#descripcion" class="navbar-link" id="descripcionMenu">Descripción</a>
-      </li>
-     <li class="navbar-item">
-        <a href="#galeria" class="navbar-link" id="galeriaMenu">Galería</a>
-      </li>
-      <li class="navbar-item">
-        <a href="#ubicacion" class="navbar-link" id="ubicacionMenu">Ubicación</a>
-      </li>
-      <li class="navbar-item">
-        <a href="#contacto" class="navbar-link" id="contactoMenu">Contacto</a>
-      </li>
-      <li class="navbar-item">
-        <a href="#inicio" class="navbar-link"></a>
-      </li>
-    </ul>
-  </nav>
-    <div id="inicio" class="content">
-        <div class="slides-container">
-          <div class="slides">
-            <div class="slide">
-              <img src="imagen1.jpg" alt="Cabañas en Las Trancas - Cabaña exterior con vista a la montaña">
-            </div>
-            <div class="slide">
-              <img src="imagen2.jpg" alt="Cabañas en Las Trancas - Cabaña interior con vista al bosque">
-            </div>
-            <div class="slide">
-              <img src="imagen3.jpg" alt="Cabañas en Las Trancas - Cabaña con jacuzzi privado">
-            </div>
-            <div class="slide">
-              <img src="imagen4.jpg" alt="Cabañas en Las Trancas - Cabaña con vista panorámica">
-            </div>
-          </div>
-          <div class="text-container">Cabañas Los Coigües</div>
-          <div class="dots-container" id="dots-container"></div>
-        </div>
+      .dot.active {
+        background-color: #717171;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar-nav">
+      <div id="toggle-menu" class="toggle-menu">
+        <img src="img/toggle.png" alt="" />
       </div>
-  
-      <section id="descripcion">
-        <h2>Descripción</h2>
-        <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
-      </section>
-  
-      <section id="galeria">
-        <h2>Galería</h2>
-        <div class="gallery">
-          <a data-fancybox="gallery" href="imagen1.jpg">
-            <img src="imagen1.jpg" alt="Cabañas en Las Trancas - Imagen 1">
-          </a>
-          <a data-fancybox="gallery" href="imagen2.jpg">
-            <img src="imagen2.jpg" alt="Cabañas en Las Trancas - Imagen 2">
-          </a>
-          <a data-fancybox="gallery" href="imagen3.jpg">
-            <img src="imagen3.jpg" alt="Cabañas en Las Trancas - Imagen 3">
-          </a>
-          <a data-fancybox="gallery" href="imagen4.jpg">
-            <img src="imagen4.jpg" alt="Cabañas en Las Trancas - Imagen 4">
-          </a>
-          <a data-fancybox="gallery" data-type="iframe" data-src="https://www.youtube.com/embed/zotWrS2XdTk" href="javascript:;">
-            <img src="imagen1.jpg" alt="Cabañas en Las Trancas - Video de YouTube">
-          </a>
-        </div>
-      </section>
-  
-      <section id="ubicacion">
-        <h2>Ubicación</h2>
-        <div id="map" class="map">
-          <!-- Aquí se insertará el mapa de Google Maps -->
-        </div>
-      </section>
-  
-      <section id="contacto">
-        <h2>Contacto</h2>
-        <p>Información de contacto...</p>
-        <a href="https://wa.me/+56998583011?text=Hola%20Quiero%20hacer%20una%20consulta" target="_blank">Enviar mensaje de WhatsApp</a>
-      </section>
+      <ul class="navbar" id="navbar">
+        <li class="navbar-item">
+          <a href="#inicio" class="navbar-link" id="inicioMenu">Inicio</a>
+        </li>
+        <li class="navbar-item">
+          <a href="#descripcion" class="navbar-link" id="descripcionMenu"
+            >Descripción</a
+          >
+        </li>
+        <li class="navbar-item">
+          <a href="#galeria" class="navbar-link" id="galeriaMenu">Galería</a>
+        </li>
+        <li class="navbar-item">
+          <a href="#ubicacion" class="navbar-link" id="ubicacionMenu"
+            >Ubicación</a
+          >
+        </li>
+        <li class="navbar-item">
+          <a href="#contacto" class="navbar-link" id="contactoMenu">Contacto</a>
+        </li>
+        <li class="navbar-item">
+          <a href="#inicio" class="navbar-link"></a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="whatsapp-container">
+      <a
+        href="https://wa.me/+56998583011?text=Hola%20Quiero%20hacer%20una%20consulta"
+        target="_blank"
+      >
+        <img src="img/logos/whatsapp.png" alt="Enviar mensaje de WhatsApp" />
+      </a>
     </div>
-  
+
+    <div id="inicio" class="content">
+      <div class="slides-container">
+        <div class="slides">
+          <div class="slide">
+            <img
+              src="imagen1.jpg"
+              alt="Cabañas en Las Trancas - Cabaña exterior con vista a la montaña"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="imagen2.jpg"
+              alt="Cabañas en Las Trancas - Cabaña interior con vista al bosque"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="imagen3.jpg"
+              alt="Cabañas en Las Trancas - Cabaña con jacuzzi privado"
+            />
+          </div>
+          <div class="slide">
+            <img
+              src="imagen4.jpg"
+              alt="Cabañas en Las Trancas - Cabaña con vista panorámica"
+            />
+          </div>
+        </div>
+        <div class="text-container">Cabañas Los Coigües</div>
+        <div class="dots-container" id="dots-container"></div>
+      </div>
+    </div>
+
+    <section id="descripcion">
+      <h2>Descripción</h2>
+      <p>
+        Lorem Ipsum es simplemente el texto de relleno de las imprentas y
+        archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de
+        las industrias desde el año 1500, cuando un impresor (N. del T. persona
+        que se dedica a la imprenta) desconocido usó una galería de textos y los
+        mezcló de tal manera que logró hacer un libro de textos especimen. No
+        sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno
+        en documentos electrónicos, quedando esencialmente igual al original.
+        Fue popularizado en los 60s con la creación de las hojas "Letraset", las
+        cuales contenian pasajes de Lorem Ipsum, y más recientemente con
+        software de autoedición, como por ejemplo Aldus PageMaker, el cual
+        incluye versiones de Lorem Ipsum.
+      </p>
+    </section>
+
+    <section id="galeria">
+      <h2>Galería</h2>
+      <div class="gallery">
+        <a data-fancybox="gallery" href="imagen1.jpg">
+          <img src="imagen1.jpg" alt="Cabañas en Las Trancas - Imagen 1" />
+        </a>
+        <a data-fancybox="gallery" href="imagen2.jpg">
+          <img src="imagen2.jpg" alt="Cabañas en Las Trancas - Imagen 2" />
+        </a>
+        <a data-fancybox="gallery" href="imagen3.jpg">
+          <img src="imagen3.jpg" alt="Cabañas en Las Trancas - Imagen 3" />
+        </a>
+        <a data-fancybox="gallery" href="imagen4.jpg">
+          <img src="imagen4.jpg" alt="Cabañas en Las Trancas - Imagen 4" />
+        </a>
+        <a
+          data-fancybox="gallery"
+          data-type="iframe"
+          data-src="https://www.youtube.com/embed/zotWrS2XdTk"
+          href="javascript:;"
+        >
+          <img
+            src="imagen1.jpg"
+            alt="Cabañas en Las Trancas - Video de YouTube"
+          />
+        </a>
+      </div>
+    </section>
+
+    <section id="ubicacion">
+      <h2>Ubicación</h2>
+      <div id="map" class="map">
+        <!-- Aquí se insertará el mapa de Google Maps -->
+      </div>
+      <!-- <div style="background-color: #333;">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d887.7017464942195!2d-71.48902111845135!3d-36.902746503877246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x966e94736e619545%3A0xe1b54e850db5f8c4!2sCaba%C3%B1as%20Colegio%20Medico!5e1!3m2!1ses!2scl!4v1711727372624!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div> -->
+      <a href="https://waze.com/ul/h63mnj608p">Abrir en Waze</a>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>Información de contacto...</p>
+    </section>
+
     <!-- Scripts al final del cuerpo -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script>
       let currentIndex = 0;
-      const slides = document.querySelector('.slides');
-      const totalSlides = document.querySelectorAll('.slide').length;
-      const dotsContainer = document.getElementById('dots-container');
-  
+      const slides = document.querySelector(".slides");
+      const totalSlides = document.querySelectorAll(".slide").length;
+      const dotsContainer = document.getElementById("dots-container");
+
       // Crear los puntos de navegación
       for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        dot.setAttribute('data-index', i);
-        dot.addEventListener('click', () => {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        dot.setAttribute("data-index", i);
+        dot.addEventListener("click", () => {
           currentIndex = i;
           updateSlider();
         });
         dotsContainer.appendChild(dot);
       }
-  
+
       // Actualizar el slider cuando se haga clic en un punto de navegación
       function updateSlider() {
         slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-        const dots = document.querySelectorAll('.dot');
+        const dots = document.querySelectorAll(".dot");
         dots.forEach((dot, index) => {
           if (index === currentIndex) {
-            dot.classList.add('active');
+            dot.classList.add("active");
           } else {
-            dot.classList.remove('active');
+            dot.classList.remove("active");
           }
         });
       }
-  
+
       setInterval(() => {
         currentIndex = (currentIndex + 1) % totalSlides;
         updateSlider();
@@ -314,55 +378,57 @@
         // Opciones del mapa
         var options = {
           zoom: 15,
-          center: lugar
+          center: lugar,
         };
         // Crear el mapa
         var map = new google.maps.Map(document.getElementById("map"), options);
         // Marcador en el lugar
         var marker = new google.maps.Marker({
           position: lugar,
-          map: map
+          map: map,
         });
       }
     </script>
-  
+
     <!-- Incluir la API de Google Maps -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap" async defer></script>
-  
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=TU_API_KEY&callback=initMap"
+      async
+      defer
+    ></script>
+
     <script>
-      const toggleMenuElement = document.getElementById('toggle-menu');
-      const inicioMenuElement = document.getElementById('inicioMenu');
-      const descripcionMenuElement = document.getElementById('descripcionMenu');      ;
-      const galeriaMenuElement = document.getElementById('galeriaMenu');      ;
-      const ubicacionMenuElement = document.getElementById('ubicacionMenu');
-      const contactoMenuElement = document.getElementById('contactoMenu');
-      const navbarElement = document.getElementById('navbar');
+      const toggleMenuElement = document.getElementById("toggle-menu");
+      const inicioMenuElement = document.getElementById("inicioMenu");
+      const descripcionMenuElement = document.getElementById("descripcionMenu");
+      const galeriaMenuElement = document.getElementById("galeriaMenu");
+      const ubicacionMenuElement = document.getElementById("ubicacionMenu");
+      const contactoMenuElement = document.getElementById("contactoMenu");
+      const navbarElement = document.getElementById("navbar");
 
-      toggleMenuElement.addEventListener('click', () => {
-        navbarElement.classList.toggle('navbar-show');
+      toggleMenuElement.addEventListener("click", () => {
+        navbarElement.classList.toggle("navbar-show");
       });
 
-      inicioMenuElement.addEventListener('click', () => {
-        navbarElement.classList.toggle('navbar-show');
+      inicioMenuElement.addEventListener("click", () => {
+        navbarElement.classList.toggle("navbar-show");
       });
 
-      descripcionMenuElement.addEventListener('click', () => {
-        navbarElement.classList.toggle('navbar-show');
+      descripcionMenuElement.addEventListener("click", () => {
+        navbarElement.classList.toggle("navbar-show");
       });
 
-      galeriaMenuElement.addEventListener('click', () => {
-        navbarElement.classList.toggle('navbar-show');
+      galeriaMenuElement.addEventListener("click", () => {
+        navbarElement.classList.toggle("navbar-show");
       });
 
-      ubicacionMenuElement.addEventListener('click', () => {
-        navbarElement.classList.toggle('navbar-show');
+      ubicacionMenuElement.addEventListener("click", () => {
+        navbarElement.classList.toggle("navbar-show");
       });
 
-      contactoMenuElement.addEventListener('click', () => {
-        navbarElement.classList.toggle('navbar-show');
+      contactoMenuElement.addEventListener("click", () => {
+        navbarElement.classList.toggle("navbar-show");
       });
     </script>
-
   </body>
-  </html>
-  
+</html>
