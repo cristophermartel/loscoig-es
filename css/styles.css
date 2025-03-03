@@ -3,6 +3,8 @@ html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  background-color: #f4f1eb;
+  color: #2d2d2d;
 }
 
 .toggle-menu {
@@ -24,7 +26,7 @@ html {
   padding-left: 0;
   display: flex;
   flex-direction: column;
-  background-color: #bbb;
+  background-color: #3b4d2e;
   align-items: center;
   transition: transform 0.3s;
   transform: translateY(-83%);
@@ -53,7 +55,7 @@ html {
 }
 
 .navbar-link {
-  color: white;
+  color: #f4f1eb;
   text-transform: uppercase;
   text-decoration: none;
 }
@@ -80,7 +82,8 @@ html {
   border: 0;
 }
 
-.waze-container {
+/* .waze-container {
+  background-color: red;
   display: flex;
   flex-direction: row;
   text-align: right;
@@ -90,12 +93,12 @@ html {
   margin-top: 30px;
   margin-bottom: 30px;
   gap: 30px;
-}
+} */
 
-.waze-container img {
+/* .waze-container img {
   width: 80px;
   height: 80px;
-}
+} */
 
 @media screen and (min-width: 768px) {
   .map-container {
@@ -108,9 +111,9 @@ html {
     margin: auto;
   }
 
-  .waze-container {
+  /* .waze-container {
     margin-right: 15%;
-  }
+  } */
 
   .whatsapp-container img {
     width: 150px;
@@ -125,12 +128,21 @@ html {
 
 /* Estilos para las secciones */
 section {
-  padding: 60px 20px 20px 20px;
-  background-color: #f9f9f9;
+  padding: 20px 20px 20px 20px;
+  margin: 20px 5%;
+  background-color: #d9c2a3;
+  border-radius: 3%;
 }
 
 h2 {
   margin-top: 0;
+}
+
+.footer {
+  background-color: #2f3d21;
+  padding: 50px 20px 30px 9px;
+  text-align: center;
+  color: #f4f1eb;
 }
 
 /* Estilos para el slide */
